@@ -1,0 +1,343 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Deploy Functions App through Deployment Center  · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="Deploy Functions App through Deployment Center.html">
+            
+                <a href="Deploy Functions App through Deployment Center.html">
+            
+                    
+                    Deploy Functions App through Deployment Center 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Deploy Functions App through Deployment Center </a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="deploy-functions-app-through-deployment-center">Deploy Functions App through Deployment Center</h1>
+<ol>
+<li>register external git with <a href="http://shou7" target="_blank">http://shou7</a>:&lt; PAT &gt;@github.dxc.com/scf-tnp/CAT.git</li>
+<li>navigate <a href="http://FunctionsAppCD.scm.azurewebsites.net" target="_blank">http://FunctionsAppCD.scm.azurewebsites.net</a>, go to Debug Console, </li>
+<li>ssh-keygen to generate a new ssh key</li>
+<li>ssh-keyscan -t rsa github.dxc.com &gt;&gt; known_hosts<pre><code>D:\home\.ssh&gt;ssh-keyscan -t rsa github.dxc.com &gt;&gt; known_hosts
+# github.dxc.com:22 SSH-2.0-babeld-d276e467
+</code></pre></li>
+<li>go to .ssh folder, open id_rsa.pub file, copy content</li>
+<li>go to github -&gt; setttings -&gt; deploy key, paste the pub content</li>
+<li>go back to scm portal, run: ssh -vT git@github.dxc.com  ( or ssh -vvv git@github.dxc.com )
+```
+D:\home.ssh&gt;ssh -vT git@github.dxc.com
+OpenSSH_8.3p1, OpenSSL 1.1.1g  21 Apr 2020
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: Connecting to github.dxc.com [34.202.75.143] port 22.
+debug1: Connection established.
+debug1: identity file /d/home/.ssh/id_rsa type 0
+debug1: identity file /d/home/.ssh/id_rsa-cert type -1
+debug1: identity file /d/home/.ssh/id_dsa type -1
+debug1: identity file /d/home/.ssh/id_dsa-cert type -1
+debug1: identity file /d/home/.ssh/id_ecdsa type -1
+debug1: identity file /d/home/.ssh/id_ecdsa-cert type -1
+debug1: identity file /d/home/.ssh/id_ecdsa_sk type -1
+debug1: identity file /d/home/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /d/home/.ssh/id_ed25519 type -1
+debug1: identity file /d/home/.ssh/id_ed25519-cert type -1
+debug1: identity file /d/home/.ssh/id_ed25519_sk type -1
+debug1: identity file /d/home/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /d/home/.ssh/id_xmss type -1
+debug1: identity file /d/home/.ssh/id_xmss-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_8.3
+debug1: Remote protocol version 2.0, remote software version babeld-d276e467
+debug1: no match: babeld-d276e467
+debug1: Authenticating to github.dxc.com:22 as &apos;git&apos;
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: rsa-sha2-512
+debug1: kex: server-&gt;client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client-&gt;server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: Server host key: ssh-rsa SHA256:6eNrzLO+L4SGT+m6ZeQjlEAxkfD8ShaYl0FeFnbn5Lk
+debug1: Host &apos;github.dxc.com&apos; is known and matches the RSA host key.
+debug1: Found key in /d/home/.ssh/known_hosts:1
+Warning: Permanently added the RSA host key for IP address &apos;34.202.75.143&apos; to the list of known hosts.
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey in after 134217728 blocks
+debug1: Will attempt key: /d/home/.ssh/id_rsa RSA SHA256:x9rjz+p7fw9d2Kj30BqzHoHHrhE8fOVck9AnsQPz4kA
+debug1: Will attempt key: /d/home/.ssh/id_dsa 
+debug1: Will attempt key: /d/home/.ssh/id_ecdsa 
+debug1: Will attempt key: /d/home/.ssh/id_ecdsa_sk 
+debug1: Will attempt key: /d/home/.ssh/id_ed25519 
+debug1: Will attempt key: /d/home/.ssh/id_ed25519_sk 
+debug1: Will attempt key: /d/home/.ssh/id_xmss 
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-rsa,rsa-sha2-512,rsa-sha2-256,ssh-dss></ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-rsa,rsa-sha2-512,rsa-sha2-256,ssh-dss></implicit></implicit></li>
+</ol>
+<p>debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey
+debug1: Next authentication method: publickey
+debug1: Offering public key: /d/home/.ssh/id_rsa RSA SHA256:x9rjz+p7fw9d2Kj30BqzHoHHrhE8fOVck9AnsQPz4kA
+debug1: Server accepts key: /d/home/.ssh/id_rsa RSA SHA256:x9rjz+p7fw9d2Kj30BqzHoHHrhE8fOVck9AnsQPz4kA
+debug1: Authentication succeeded (publickey).
+Authenticated to github.dxc.com ([34.202.75.143]:22).
+debug1: channel 0: new [client-session]
+debug1: Entering interactive session.
+debug1: pledge: network
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+Hi scf-tnp/CAT! You&apos;ve successfully authenticated, but GitHub does not provide shell access.
+debug1: channel 0: free: client-session, nchannels 1
+Transferred: sent 3216, received 2324 bytes, in 0.0 seconds
+Bytes per second: sent 66153.8, received 47805.2
+debug1: Exit status 1</p>
+<pre><code>
+8. download publish profile file, and get user name and password from the file
+9. in Github setting, register hooks: https://&lt; username &gt;:&lt; password &gt;@functionsappcd.scm.azurewebsites.net/deploy
+
+# Q &amp; A
+
+1. Q: Host key verification failed
+
+Host key verification failed.\r\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n\r\nD:\Program Files\Git\cmd\git.exe fetch origin --progress
+
+A: 
+
+&gt; go to scm portal, check known_hosts and id_rsa, and id_rsa_pub files exist, if not so, run:
+&gt; ssh-keygen
+&gt; and then ssh-keyscan -t rsa github.dxc.com &gt;&gt; known_hosts
+</code></pre><p>D:\home.ssh&gt;ssh-keyscan -t rsa github.dxc.com &gt;&gt; known_hosts</p>
+<h1 id="githubdxccom22-ssh-20-babeld-d276e467">github.dxc.com:22 SSH-2.0-babeld-d276e467</h1>
+<p>```</p>
+<ol>
+<li>Q: Error: Permission denied (publickey)</li>
+</ol>
+<p>A: </p>
+<blockquote>
+<p>First, run ssh-keygen to generate new pub/private key pair, and register Deploy Key in github again
+If the issue still exists, Refer to <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/error-permission-denied-publickey#" target="_blank">github</a></p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Deploy Functions App through Deployment Center ","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Deploy Functions App through Deployment Center.md","mtime":"2020-11-24T06:15:22.904Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-24T06:00:02.370Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
